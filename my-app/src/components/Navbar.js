@@ -1,6 +1,16 @@
 import React from "react";
+import { useState } from 'react';
+import useFetchFromApi from "../components/useFetchFromApi";
 
 export default function Navbar() {
+
+  const [{projects, isLoading, isError}, doFetch] = useFetchFromApi();
+  const [query, setQuery] = useState('grunt');
+
+  const handleChange = (event) =>{
+    setQuery(event.target.value);
+  }
+
   return(
 
     <header className="navbar navbar-expand-lg bg-primary bg-opacity-50">
@@ -28,9 +38,16 @@ export default function Navbar() {
             </ul>
           </nav>
 
-          <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success" type="submit">Search</button>
+          <form onSubmit={event => {
+            doFetch(`https://libraries.io/api/search?q=${query}&api_key=fa203ef05e60f974b8999be7bb8a3d79`);
+            event.preventDefault();
+          }}>
+            <input
+              type="text"
+              value={query}
+              onChange={handleChange}
+            />
+            <button type="submit">Search</button>
           </form>
 
         </div>
