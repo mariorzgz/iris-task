@@ -11,11 +11,13 @@ function App() {
   const [{projects, isLoading, isError}, doFetch] = useFetchFromApi();
   const [query, setQuery] = useState('grunt');
 
+  const sorting = "projectName"
+
 
   return (
     <div className="app">
 
-<header className="navbar navbar-expand-lg bg-primary bg-opacity-50">
+    <header className="navbar navbar-expand-lg bg-primary bg-opacity-50">
       <div className="container-fluid">
 
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,7 +90,7 @@ function App() {
               {isLoading ? (
                 <div>Loading...</div>
               ) : (
-                <Projects projects={projects}/>
+                <Projects projects={projects} sorting={sorting}/>
               )}
 
             </div>

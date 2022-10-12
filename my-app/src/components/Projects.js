@@ -1,16 +1,23 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function Projects({projects}) {
+export default function Projects({projects, sorting}) {
 
   let [paginate, setpaginate] = useState(5);
   let currentPage = 1;
   const pages = projects.length/5
 
+
   const changePage = (event) => {
     currentPage = event.target.innerHTML;
     setpaginate(currentPage*5)
   }
+
+  useEffect(() => {
+    console.log(sorting)
+  });
+
+
 
   return(
 
