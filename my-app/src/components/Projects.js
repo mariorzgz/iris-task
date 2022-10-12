@@ -20,7 +20,6 @@ export default function Projects({projects}) {
   return(
 
     <div className="projects-container row" >
-      <div id="projectsContainer">
         {projects.slice(paginate-5, paginate).map((project, index) => {
           return (
             <div className='col-sm-12 col-md-6 col-lg-4' key={index}>
@@ -36,7 +35,6 @@ export default function Projects({projects}) {
             </div>
           );
         })}
-      </div>
       <div className="pagination">
       {[...Array(pages)].map((x, i) =>
           <button
