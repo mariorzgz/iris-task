@@ -4,18 +4,13 @@ import { useState } from "react";
 export default function Projects({projects}) {
 
   let [paginate, setpaginate] = useState(5);
-  const [currentPage, setcurrentpage] = useState(1);
+  let currentPage = 1;
   const pages = projects.length/5
 
-  const loadMore = (event) => {
-    setpaginate((prevValue) => prevValue + 5);
-  };
-
   const changePage = (event) => {
-    setcurrentpage(event.target.innerHTML)
+    currentPage = event.target.innerHTML;
     setpaginate(currentPage*5)
   }
-
 
   return(
 
@@ -35,14 +30,13 @@ export default function Projects({projects}) {
             </div>
           );
         })}
-      <div className="pagination">
+      <div className="pagination d-flex container justify-content-center">
       {[...Array(pages)].map((x, i) =>
-          <button
+          <button className="btn"
             onClick={changePage} key={i}>{i+1}</button>
         )}
       </div>
 
-      <button onClick={loadMore}>Load More</button>
   </div>
   );
 };
