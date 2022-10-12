@@ -1,18 +1,22 @@
 import React from "react";
 import { useState } from 'react';
-import useFetchFromApi from "../components/useFetchFromApi";
+import useFetchFromApi from "./useFetchFromApi";
+import Projects from "./Projects";
 
 export default function Navbar() {
 
-  const [{projects, isLoading, isError}, doFetch] = useFetchFromApi();
+  const [{}, doFetch] = useFetchFromApi();
   const [query, setQuery] = useState('grunt');
 
   const handleChange = (event) =>{
     setQuery(event.target.value);
   }
 
-  return(
 
+
+  //TENGO LOS PROYECTOS, AHORA SOLO TENGO QUE SACARLOS DE AQUÍ PARA PODER PONERLOS EN OTRO COMPONENTE
+
+  return(
     <header className="navbar navbar-expand-lg bg-primary bg-opacity-50">
       <div className="container-fluid">
 
@@ -53,6 +57,7 @@ export default function Navbar() {
         </div>
 
       </div>
+
     </header>
 
   );
