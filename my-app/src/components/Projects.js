@@ -17,6 +17,10 @@ export default function Projects({projects, sorting}) {
     console.log(sorting)
   });
 
+  const sort = () => {
+
+  }
+
 
 
   return(
