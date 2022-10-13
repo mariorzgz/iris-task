@@ -3,13 +3,16 @@ import { useState, useEffect } from 'react';
 export default function useFetchFromApi(){
 
   const [projects, setProjects] = useState([]);
-  const [url, setUrl] = useState(`https://libraries.io/api/search?q=grunt&api_key=fa203ef05e60f974b8999be7bb8a3d79`);
+  const [url, setUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isInitial, setIsInitial] = useState(true)
 
   useEffect(() => {
+      if(url !== ''){
       const fetchData = () => {
       fetch(url)
+        .then((setIsInitial(false)))
         .then((setIsLoading(true)))
         .then((setIsError(false)))
         .then((response) => response.json())
@@ -24,7 +27,10 @@ export default function useFetchFromApi(){
 
         }
         fetchData();
+      }else{
+        setIsInitial(true)
+      }
   }, [url]);
 
-  return [{ projects, isLoading, isError}, setUrl];
+  return [{ projects, isLoading, isError, isInitial}, setUrl];
 }

@@ -3,7 +3,7 @@ import React from "react";
 export default function Sidebar() {
   return(
 
-    <nav id="sidebar" className='sidebar navbar'>
+    <nav id="sidebar" className='sidebar navbar align-items-start'>
       <ul className="navbar-nav ">
         <li className="nav-item">
           <a className="nav-link" href="#">Home</a>
