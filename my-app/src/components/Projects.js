@@ -21,8 +21,6 @@ export default function Projects({projects, sorting}) {
 
   }
 
-
-
   return(
 
     <div className="projects-container row" >

@@ -8,8 +8,8 @@ import useFetchFromApi from "./components/useFetchFromApi";
 
 function App() {
 
-  const [{projects, isLoading, isError}, doFetch] = useFetchFromApi();
-  const [query, setQuery] = useState('grunt');
+  const [{projects, isLoading, isError, isInitial}, doFetch] = useFetchFromApi();
+  const [query, setQuery] = useState('');
 
   const sorting = "projectName"
 
@@ -51,6 +51,7 @@ function App() {
               type="text"
               value={query}
               onChange={event => setQuery(event.target.value)}
+              placeholder="Enter your search term"
             />
             <button type="submit">Search</button>
           </form>
@@ -68,32 +69,46 @@ function App() {
 
         <section className='container'>
 
-        <div className='d-flex'>
-
-            <h1>Search Results ( {projects.length} )</h1>
+        {isInitial ? (
+            <div className='d-flex'>
+              <h1>Make your first search</h1>
+            </div>
+          ) : (
 
             <div>
-              <ul className=''>
-                <li className='d-inline mx-2'>Order by:</li>
-                <li className='d-inline mx-2'>Name</li>
-                <li className='d-inline mx-2'>Owner name</li>
-                <li className='d-inline mx-2'>Stars</li>
-              </ul>
+
+            <div className='d-flex'>
+
+              <h1>Search Results ( {projects.length} )</h1>
+
+              <div>
+                <ul className=''>
+                  <li className='d-inline mx-2'>Order by:</li>
+                  <li className='d-inline mx-2'>Name</li>
+                  <li className='d-inline mx-2'>Owner name</li>
+                  <li className='d-inline mx-2'>Stars</li>
+                </ul>
+              </div>
+
+              </div>
+
+              <div className='results mt-5'>
+
+                {isError && <div>Something went wrong...</div>}
+
+                {isLoading ? (
+                  <div>Loading...</div>
+                ) : (
+                  <Projects projects={projects} sorting={sorting}/>
+                )}
+
+              </div>
+
             </div>
 
-          </div>
+          )}
 
-            <div className='results mt-5'>
 
-              {isError && <div>Something went wrong...</div>}
-
-              {isLoading ? (
-                <div>Loading...</div>
-              ) : (
-                <Projects projects={projects} sorting={sorting}/>
-              )}
-
-            </div>
 {/*
             <button
             onClick={event => {
