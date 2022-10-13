@@ -29,11 +29,21 @@ $headings-font-family: "Roboto";
 
 $primary: #98C1D9;
 $secondary: #EE6C4D;
+$dark: #293241;
 
 $custom-theme-colors:map-merge($theme-colors, (
   "primary": $primary,
-  "secondary": $secondary
+  "secondary": $secondary,
+  "dark": $dark
 ));
+
+$position-values: (
+  0: 0,
+  10: 10%,
+  20: 20%,
+  50: 50%,
+  100: 100%
+);
 
 $theme-colors: map-merge($theme-colors, $custom-theme-colors);
 $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
