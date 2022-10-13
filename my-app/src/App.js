@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="app">
 
-    <header className="navbar navbar-expand-lg bg-primary bg-opacity-50">
+    <header className="navbar navbar-expand-lg bg-primary">
       <div className="container-fluid">
 
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,64 +75,64 @@ function App() {
 
     </header>
 
-      <main className='d-flex mt-4'>
+      <main className='mt-4'>
 
-        <Sidebar />
+        <div className='row'>
 
-        <section className='container'>
+          <div className='col col-lg-2'>
 
-        {isInitial ? (
-            <div className='d-flex'>
-              <h1>Make your first search</h1>
-            </div>
-          ) : (
+            <Sidebar />
 
-            <div>
+          </div>
 
-            <div className='d-flex'>
+          <div className='col col-lg-10'>
 
-              <h1>Search Results ( {projects.length} )</h1>
+            <section className='container'>
 
-              <div>
-                <ul className=''>
-                  <li className='d-inline mx-2'>Order by:</li>
-                  <li className='d-inline mx-2'><button onClick={sortByName}>Name</button></li>
-                  <li className='d-inline mx-2'><button onClick={sortByOwnerName}>Owner name</button></li>
-                  <li className='d-inline mx-2'><button onClick={sortByStars}>Stars</button></li>
-                </ul>
-              </div>
-
-              </div>
-
-              <div className='results mt-5'>
-
-                {isError && <div>Something went wrong...</div>}
-
-                {isLoading ? (
-                  <div>Loading...</div>
+              {isInitial ? (
+                  <div className='d-flex'>
+                    <h1>Make your first search</h1>
+                  </div>
                 ) : (
-                  <Projects projects={projects} sorting={sorting}/>
+
+                  <div>
+
+                  <div className='d-flex'>
+
+                    <h1>Search Results ( {projects.length} )</h1>
+
+                    <div>
+                      <ul className=''>
+                        <li className='d-inline mx-2 fw-bold'>Order by:</li>
+                        <li className='d-inline mx-2'><button className="btn text-secondary" onClick={sortByName}>Name</button></li>
+                        <li className='d-inline mx-2'><button className="btn " onClick={sortByOwnerName}>Owner name</button></li>
+                        <li className='d-inline mx-2'><button className="btn " onClick={sortByStars}>Stars</button></li>
+                      </ul>
+                    </div>
+
+                    </div>
+
+                    <div className='results mt-5'>
+
+                      {isError && <div>Something went wrong...</div>}
+
+                      {isLoading ? (
+                        <div>Loading...</div>
+                      ) : (
+                        <Projects projects={projects} sorting={sorting}/>
+                      )}
+
+                    </div>
+
+                  </div>
+
                 )}
 
-              </div>
+            </section>
 
-            </div>
+          </div>
 
-          )}
-
-
-{/*
-            <button
-            onClick={event => {
-              doFetch(`https://libraries.io/api/search?q=${query}&per_page=5&page=2&api_key=fa203ef05e60f974b8999be7bb8a3d79`)
-            }}>Page 2</button>
-
-            <button
-            onClick={event => {
-              doFetch(`https://libraries.io/api/search?q=${query}&per_page=5&page=3&api_key=fa203ef05e60f974b8999be7bb8a3d79`)
-            }}>Page 3</button> */}
-
-        </section>
+        </div>
 
       </main>
 

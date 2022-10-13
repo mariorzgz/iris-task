@@ -3,13 +3,13 @@ import React from "react";
 export default function Sidebar() {
   return(
 
-    <nav id="sidebar" className='sidebar navbar align-items-start'>
+    <nav id="sidebar" className='sidebar navbar align-items-start ps-5'>
       <ul className="navbar-nav ">
         <li className="nav-item">
           <a className="nav-link" href="#">Home</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link active" href="#" aria-current="page">Creating Packages</a>
+          <a className="nav-link active text-secondary" href="#" aria-current="page">Creating Packages</a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">API</a>
