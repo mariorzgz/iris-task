@@ -5,7 +5,7 @@
   --headings-font-family: "Roboto";
 }
 
-body{
+html, body {
   overflow-x: hidden;
 }
 
