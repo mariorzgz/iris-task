@@ -11,7 +11,19 @@ function App() {
   const [{projects, isLoading, isError, isInitial}, doFetch] = useFetchFromApi();
   const [query, setQuery] = useState('');
 
-  const sorting = "projectName"
+  const [sorting, setSorting] = useState("projectName");
+
+  const sortByName = () => {
+    setSorting("projectName")
+  };
+
+  const sortByOwnerName = () => {
+    setSorting("projectOwnerName")
+  };
+
+  const sortByStars = () => {
+    setSorting("projectStars")
+  };
 
 
   return (
@@ -84,9 +96,9 @@ function App() {
               <div>
                 <ul className=''>
                   <li className='d-inline mx-2'>Order by:</li>
-                  <li className='d-inline mx-2'>Name</li>
-                  <li className='d-inline mx-2'>Owner name</li>
-                  <li className='d-inline mx-2'>Stars</li>
+                  <li className='d-inline mx-2'><button onClick={sortByName}>Name</button></li>
+                  <li className='d-inline mx-2'><button onClick={sortByOwnerName}>Owner name</button></li>
+                  <li className='d-inline mx-2'><button onClick={sortByStars}>Stars</button></li>
                 </ul>
               </div>
 

@@ -3,14 +3,14 @@ import { useState, useEffect } from "react";
 
 export default function Projects({projects, sorting}) {
 
-  let [paginate, setpaginate] = useState(5);
+  let [paginate, setPaginate] = useState(5);
   let currentPage = 1;
   const pages = projects.length/5
 
 
   const changePage = (event) => {
     currentPage = event.target.innerHTML;
-    setpaginate(currentPage*5)
+    setPaginate(currentPage*5)
   }
 
   useEffect(() => {
