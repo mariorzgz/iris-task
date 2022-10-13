@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/iris-task/static/css/main.2587adb9.css",
+    "main.css": "/iris-task/static/css/main.ef1e1f61.css",
     "main.js": "/iris-task/static/js/main.0e714947.js",
     "static/js/787.28cb0dcd.chunk.js": "/iris-task/static/js/787.28cb0dcd.chunk.js",
     "index.html": "/iris-task/index.html",
-    "main.2587adb9.css.map": "/iris-task/static/css/main.2587adb9.css.map",
+    "main.ef1e1f61.css.map": "/iris-task/static/css/main.ef1e1f61.css.map",
     "main.0e714947.js.map": "/iris-task/static/js/main.0e714947.js.map",
     "787.28cb0dcd.chunk.js.map": "/iris-task/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2587adb9.css",
+    "static/css/main.ef1e1f61.css",
     "static/js/main.0e714947.js"
   ]
 }
