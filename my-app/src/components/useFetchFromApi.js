@@ -6,7 +6,7 @@ export default function useFetchFromApi(){
   const [url, setUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [isInitial, setIsInitial] = useState(false)
+  const [isInitial, setIsInitial] = useState(true)
 
   useEffect(() => {
       if(url !== ''){

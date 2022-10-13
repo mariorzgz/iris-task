@@ -11,7 +11,7 @@ function App() {
   const [{projects, isLoading, isError, isInitial}, doFetch] = useFetchFromApi();
   const [query, setQuery] = useState('');
 
-  const [sorting, setSorting] = useState("projectName");
+  const [sorting, setSorting] = useState("");
 
   const sortByName = () => {
     setSorting("projectName")
@@ -36,7 +36,7 @@ function App() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <h1>Packager</h1>
+        <h1><a href="/">Packager</a></h1>
 
         <div className="d-flex flex-column">
 
